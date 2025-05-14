@@ -1,4 +1,4 @@
-#This script is used to transform the result of SQL query into a beautiful GitHub list.
+#This script is used to transform the result of SQL query into a beautiful GitHub table.
 
 #NOTE that it will require you to paste -> enter (to confirm that you paste it as multi-line) -> enter (to enter your input) -> enter (to end your input, since it needs a way to understand that your multi-line ended)
 
