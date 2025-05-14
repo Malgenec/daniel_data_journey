@@ -18,32 +18,32 @@ If we have _**table**_ called _**Reagents**_ as our dataset, which has _**column
 
 |Name               |Concentration      |Quantity      |Manufacturer       |
 |:-----------------:|:-----------------:|:------------:|:----------------:|
-|Nitric Acid        |68                 |13            |Sigma-Aldritch    |
+|Nitric Acid        |68                 |13            |Sigma-Aldrich    |
 |Ethanol            |50                 |69            |Neighbour         |
 |NaCl               |100                |454           |Mother Earth      |
-|Sulfuric Acid      |32                 |2             |Sigma-Aldritch    |
-|Phosphoric Acid    |40                 |34            |Sigma-Aldritch    |
+|Sulfuric Acid      |32                 |2             |Sigma-Aldrich    |
+|Phosphoric Acid    |40                 |34            |Sigma-Aldrich    |
 |Uranium            |100                |9001          |Neighbour         |
-|Hydrochloric Acid  |37                 |10            |Sigma-Aldritch    |
+|Hydrochloric Acid  |37                 |10            |Sigma-Aldrich    |
 |Potassium Iodide   |5                  |25            |LabSource         |
-|Sodium Hydroxide   |50                 |100           |Sigma-Aldritch    |
+|Sodium Hydroxide   |50                 |100           |Sigma-Aldrich    |
 |Methanol           |99                 |500           |Neighbour         |
 |Acetone            |100                |250           |Mother Earth      |
 |Ammonium Nitrate   |60                 |300           |LabSource         |
-|Copper Sulfate     |20                 |150           |Sigma-Aldritch    |
+|Copper Sulfate     |20                 |150           |Sigma-Aldrich    |
 |Zinc Powder        |95                 |75            |Neighbour         |
 |Calcium Carbonate  |80                 |200           |EarthWorks        |
-|Phenolphthalein    |1                  |5             |Sigma-Aldritch    |
+|Phenolphthalein    |1                  |5             |Sigma-Aldrich    |
 
 and we want to show all the rows and columns, then, we use asterisk(\*) like this:
 
 ```
-SELECT * FROM Reagents
+SELECT * FROM Reagents;
 ```
 Then, we can also select some specific columns to show. For example name and concentration:
 
 ```
-SELECT Name, Concentration FROM Reagents
+SELECT Name, Concentration FROM Reagents;
 ```
 
 Which would show as the following table:
