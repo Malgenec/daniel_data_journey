@@ -47,21 +47,12 @@ for line in SQL_result:
             line[element_number] = line[element_number].ljust(max_lengths[column_counter]) #Adds spaces to the right of the element
         column_counter += 1
 
-
-def print_gen(input_list):
-    list_index = 0
-    while list_index < len(input_list)-1:
-        yield input_list[list_index]
-        list_index+=1
-    #Generate each line for printing
-
-
 HeaderUnderline = []
 for i in range(len(SQL_result[0])):
     HeaderUnderline.append('-' * (max_lengths[i]-2)) #Create the underline for the header
 
 #Print each element in a borders
 for value in SQL_result:
-    print('|'+'|'.join(value)+'|')
+    print('|'+'|'.join(value)+'|') #Borders the elements with | and prints them
     if value == SQL_result[0]:
-        print('|:' + ':|:'.join(HeaderUnderline) + ':|')
+        print('|:' + ':|:'.join(HeaderUnderline) + ':|') #Prints the "alignment row" after the header
