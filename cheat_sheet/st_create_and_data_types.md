@@ -23,7 +23,8 @@ Since I use PostgreSQL I'll leave the table from the PostgreSQL documentation
 
 <details>
 <summary>PostgreSQL Types of data </summary>
- 
+*
+
 Table was copied from this [source](https://www.postgresql.org/docs/current/datatype.html)
   
 |Name                                   |Aliases           |Description                                                     |
@@ -72,5 +73,97 @@ Table was copied from this [source](https://www.postgresql.org/docs/current/data
 |uuid                                   |                  |universally unique identifier                                   |
 |xml                                    |                  |XML data                                                        |
 </details>
+
+<details>
+<summary>PostgreSQL Numeric types of data </summary>
+*
+
+Table was copied from this [source](https://www.postgresql.org/docs/current/datatype-numeric.html)
+
+|Name            |Storage Size|Description                    |Range                                                                                   |
+|:--------------:|:----------:|:-----------------------------:|:--------------------------------------------------------------------------------------:|
+|smallint        |2 bytes     |small-range integer            |-32768 to +32767                                                                        |
+|integer         |4 bytes     |typical choice for integer     |-2147483648 to +2147483647                                                              |
+|bigint          |8 bytes     |large-range integer            |-9223372036854775808 to +9223372036854775807                                            |
+|decimal         |variable    |user-specified precision, exact|up to 131072 digits before the decimal point; up to 16383 digits after the decimal point|
+|numeric         |variable    |user-specified precision, exact|up to 131072 digits before the decimal point; up to 16383 digits after the decimal point|
+|real            |4 bytes     |variable-precision, inexact    |6 decimal digits precision                                                              |
+|double precision|8 bytes     |variable-precision, inexact    |15 decimal digits precision                                                             |
+|smallserial     |2 bytes     |small autoincrementing integer |1 to 32767                                                                              |
+|serial          |4 bytes     |autoincrementing integer       |1 to 2147483647                                                                         |
+|bigserial       |8 bytes     |large autoincrementing integer |1 to 9223372036854775807                                                                |
+
+To configure the precision and scale of numeric (or decimal too), use:
+
+```
+NUMERIC(precision, scale) -- the maximum precision is 1000
+precision - maximum number of digits that are present in a number (including decimals places)
+scale - maximum number of decimal places
+```
+
+</details>
+
+<details>
+<summary>PostgreSQL Character types of data </summary>
+*
+
+Tables were copied from this [source](https://www.postgresql.org/docs/current/datatype-character.html)
+
+|Name                            |Description                             |
+|:------------------------------:|:--------------------------------------:|
+|character varying(n), varchar(n)|variable-length with limit              |
+|character(n), char(n), bpchar(n)|fixed-length, blank-padded              |
+|bpchar                          |variable unlimited length, blank-trimmed|
+|text                            |variable unlimited length               |
+
+Special types:
+
+|Name  |Storage Size|Description                   |
+|:----:|:----------:|:----------------------------:|
+|"char"|1 byte      |single-byte internal type     |
+|name  |64 bytes    |internal type for object names|
+
+</details>
+
+<details>
+<summary>PostgreSQL Date/Time types of data </summary>
+*
+
+Table was copied from this [source](https://www.postgresql.org/docs/current/datatype-datetime.html)
+    
+|Name                                   |Storage Size|Description                          |Low Value       |High Value     |Resolution   |
+|:-------------------------------------:|:----------:|:-----------------------------------:|:--------------:|:-------------:|:-----------:|
+|timestamp [ (p) ] [ without time zone ]|8 bytes     |both date and time (no time zone)    |4713 BC         |294276 AD      |1 microsecond|
+|timestamp [ (p) ] with time zone       |8 bytes     |both date and time, with time zone   |4713 BC         |294276 AD      |1 microsecond|
+|date                                   |4 bytes     |date (no time of day)                |4713 BC         |5874897 AD     |1 day        |
+|time [ (p) ] [ without time zone ]     |8 bytes     |time of day (no date)                |00:00:00        |24:00:00       |1 microsecond|
+|time [ (p) ] with time zone            |12 bytes    |time of day (no date), with time zone|00:00:00+1559   |24:00:00-1559  |1 microsecond|
+|interval [ fields ] [ (p) ]            |16 bytes    |time interval                        |-178000000 years|178000000 years|1 microsecond|
+
+</details>
+
+## Data constraints
+
+Several data constraints exist in SQL, which give more control over data in a column provided. If data violates a constraint, error is being raised.
+
+### `CHECK` constraint
+
+`CHECK` constraint allows to specify a boolean rule, for example:
+
+```
+CREATE TABLE REAGENTS(
+name varchar(255),
+concentration INTEGER CHECK (concentration <= 100 AND concentration > 0)
+);
+```
+
+To specify name of a constraint, use `CONSTRAINT`:
+
+```
+CREATE TABLE REAGENTS(
+name varchar(255),
+quantity INTEGER  CONSTRAINT positive_quantity CHECK (quantity >= 0)
+);
+```
 
 To be continued...
