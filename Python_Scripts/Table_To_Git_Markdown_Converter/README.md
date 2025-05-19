@@ -19,7 +19,7 @@ It was made for my own uses to shorten the time logging my learning progress at 
 ## Screenshot
 
 
-![Alt text](/daniel_data_journey/Python_Scripts/Table_To_Git_Markdown_Converter/display_window.png?raw=true "Screenshot from the TTGConverter v1.0")
+![Screenshot from the TTGConverter v1.0]([Python_Scripts/Table_To_Git_Markdown_Converter/display_window.png](https://github.com/Malgenec/daniel_data_journey/blob/d0917deccb0c926ba6c6f5049a1c847e8cf38e8d/Python_Scripts/Table_To_Git_Markdown_Converter/display_window.png)?raw=true)
 
 ## How to run
 
