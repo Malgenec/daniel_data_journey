@@ -151,7 +151,7 @@ Several data constraints exist in SQL, which give more control over data in a co
 `CHECK` constraint allows to specify a boolean rule, for example:
 
 ```
-CREATE TABLE REAGENTS(
+CREATE TABLE REAGENTS (
 name varchar(255),
 concentration INTEGER CHECK (concentration <= 100 AND concentration > 0)
 );
@@ -160,10 +160,115 @@ concentration INTEGER CHECK (concentration <= 100 AND concentration > 0)
 To specify name of a constraint, use `CONSTRAINT`:
 
 ```
-CREATE TABLE REAGENTS(
+CREATE TABLE REAGENTS (
 name varchar(255),
 quantity INTEGER  CONSTRAINT positive_quantity CHECK (quantity >= 0)
 );
+```
+
+### `NOT NULL` constraint
+
+The following constraint is used to ensure the data is not empty (`NULL`):
+
+```
+CREATE TABLE Reagents (
+name text NOT NULL
+);
+```
+
+It's a more efficient equivalent of `CHECK (name IS NOT NULL)`.
+
+
+### `UNIQUE` constraint
+
+`UNIQUE` constraint makes sure your data won't be repeated (unless data is `NULL`):
+
+```
+CREATE TABLE Reagents (
+some_id INTEGER UNIQUE
+);
+```
+
+or if you want to make several columns unique:
+
+```
+CREATE TABLE Reagents (
+some_id INTEGER
+unique_name TEXT
+other_value INTEGER
+UNIQUE (id, unique_name)
+);
+```
+
+For non-null unique values:
+
+```
+CREATE TABLE Reagents (
+some_id INTEGER UNIQUE NULLS NOT DISTINCT
+);
+```
+
+### `PRIMARY KEY` constraint
+
+`PRIMARY KEY` is a constraint which makes a column values be an unique identifiers (both UNIQUE and NOT NULL)
+
+```
+CREATE TABLE Reagents (
+unique_id INTEGER PRIMARY KEY
+);
+```
+
+There can be several primary keys, the syntax is the same as for `UNIQUE` constraint.
+
+### `FOREIGN KEY` and `REFERENCES` constraints
+
+`FOREIGN KEY` is a constraint which makes a `REFERENCE` to match column value to another table's column values.
+
+```
+CREATE TABLE Main_table (
+name TEXT PRIMARY KEY
+);
+```
+
+```
+CREATE TABLE Other_table (
+name TEXT REFERENCES Main_table (name)
+);
+```
+
+### Additional rules for `REFERENCES` constraint
+
+There are some additional options to be considered for a foreign key. `ON DELETE` specifies what to do with the child row if the parent row is deleted. There are a few follow-ups:
+
+- `RESTRICT` - prevents deletion of a child row
+- `CASCADE` - child row gets deleted too
+- `NO ACTION` - raise an error (default)
+- `SET NULL` - child row changes to `NULL` values
+- `SET DEFAULT` - child row changes to default values specified before.
+
+There is also `ON UPDATE` that specifies behaviour of the child row when the parent row is updated. Follow-ups:
+
+- `RESTRICT` prevents update of a child row
+- `CASCADE` updates foreign keys in child rows
+- `NO ACTION` raises an error
+
+Example:
+
+```
+CREATE TABLE Parent_table (
+id INTEGER PRIMARY KEY,
+name TEXT NOT NULL
+);
+```
+
+```
+CREATE TABLE Child_table (
+    id INTEGER PRIMARY KEY
+    name TEXT NOT NULL
+    Child_id INTEGER
+    FOREIGN KEY (Child_id) REFERENCES Parent_table(id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
 ```
 
 To be continued...
