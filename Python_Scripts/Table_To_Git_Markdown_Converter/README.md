@@ -19,7 +19,7 @@ It was made for my own uses to shorten the time logging my learning progress at 
 ## Screenshot
 
 
-![Screenshot from the TTGConverter v1.0]([Python_Scripts/Table_To_Git_Markdown_Converter/display_window.png](https://github.com/Malgenec/daniel_data_journey/blob/d0917deccb0c926ba6c6f5049a1c847e8cf38e8d/Python_Scripts/Table_To_Git_Markdown_Converter/display_window.png)?raw=true)
+![Screenshot from the TTGConverter v1.1](TTGConverterv1.1.png)
 
 ## How to run
 
@@ -64,6 +64,8 @@ The executable will appear in the dist/ folder.
 `README.md`           Project description
 
 `LICENSE`             Open-source license
+
+`CHANGELOG`           Version changes tracking
 
 ## Example Input & Output
 
@@ -117,18 +119,18 @@ The executable will appear in the dist/ folder.
 ## Tips and known issues:
 
 - Works only with tab-separated input (SQL editors, excel, some website tables). No function for other separators (yet?)
-- Deletes ALL quotes `"`, which means not only in the header, but across data too
-- If you want to capitalize the headers and there are quotes `"` in them which you don't want to remove, capitalize function does not work
+- ~~Deletes ALL quotes `"`, which means not only in the header, but across data too~~
+- ~~If you want to capitalize the headers and there are quotes `"` in them which you don't want to remove, capitalize function does not work~~
 
 ## TODO
 
 The following list does not mean it will be implemented, because it's a personal project and until there is personal need the tool won't be modified.
 
 - Support other delimiters
-- Make the capitalize headers function work even with the existence of quote signs
-- Choices for quotes removal for header/data
+- ~~Make the capitalize headers function work even with the existence of quote signs~~
+- ~~Choices for quotes removal for header/data~~
 - Choices for alignment
-- Function to clean the console
+- ~~Function to clean the console~~
 - Dark mode GUI
 
 ## License
