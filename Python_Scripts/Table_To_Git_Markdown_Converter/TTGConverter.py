@@ -2,6 +2,7 @@ import sys
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import pyperclip
+from re import sub
 
 
 # Terminal output main class
@@ -19,7 +20,7 @@ class TextRedirector:
     def flush(self):
         pass
 
-def transform_table(data, remove_quotes, capitalize_check):
+def transform_table(data, remove_quotes_h, remove_quotes_d, capitalize_check):
 
     # Main function to transform the input data into a Git Markdown table
 
@@ -36,17 +37,32 @@ def transform_table(data, remove_quotes, capitalize_check):
     # Normalize all rows to match header length
     rows = [row[:len(header)] + [""] * (len(header) - len(row)) for row in rows]
 
-    # Remove quotes if checked
-    if remove_quotes:
+    # Remove quotes from the headers if checked
+    if remove_quotes_h:
         header = [h.replace('"', '') for h in header]
+
+    # Remove quotes from the data if checked
+    if remove_quotes_d:
         rows = [[cell.replace('"', '') for cell in row] for row in rows]
 
     # Capitalize headers if checked
     if capitalize_check:
-        header = [h.capitalize() for h in header]
 
+        #Capitalize if quotes are removed
+        if remove_quotes_h:
+        
+            header = [h.capitalize() for h in header]
+        
+        #Capitalize if quotes are not removed
+        else:
+            header = [sub(r'"(\w)', lambda m: '"' + m.group(1).upper(), h) for h in header]
+    
     # Main formating of the table's header and underline
-    max_lengths = [max(len(str(cell)) for cell in column) for column in zip(header, *rows)]
+    max_lengths = []
+    for column in zip(header, *rows):
+        column_max = max(len(str(cell)) for cell in column)
+        max_lengths.append(max(column_max, 3))  # Ensures width >= 3
+
     underline = ['-' * (int(l)-2) for l in max_lengths]
     header = [h.ljust(int(l)) for h, l in zip(header, max_lengths)]
     table = ["|" + "|".join(header) + "|"]
@@ -82,6 +98,9 @@ def download_file():
         messagebox.showerror("Error", f"Failed to save file:\n{e}")
 
 def print_terminal():
+    console_output.configure(state="normal")
+    console_output.delete("1.0", tk.END)
+    console_output.configure(state="disabled")
     print(output_text.get("1.0", tk.END))
 
 def process():
@@ -89,7 +108,7 @@ def process():
     # Process the input text and transform it into a Markdown table, "Process" button function
 
     raw = input_text.get("1.0", tk.END)
-    result = transform_table(raw, quotes_check.get()==1, capitalize_check.get()==1)
+    result = transform_table(raw, quotes_check_h.get()==1, quotes_check_d.get()==1, capitalize_check.get()==1)
     output_text.delete("1.0", tk.END)
     output_text.insert(tk.END, result)
 
@@ -117,10 +136,13 @@ tk.Button(btn_frame, text="Print to Terminal", command=print_terminal).pack(side
 checkbox_frame = tk.Frame(root)
 checkbox_frame.pack()
 
+quotes_check_h = tk.IntVar()
+quotes_check_d = tk.IntVar()
+tk.Checkbutton(checkbox_frame, text = "Remove quotes(headers)", variable = quotes_check_h, onvalue = 1, offvalue = 0, height = 2, width = 18).pack(side=tk.LEFT)
 quotes_check = tk.IntVar()
-tk.Checkbutton(checkbox_frame, text = "Remove Quotes?", variable = quotes_check, onvalue = 1, offvalue = 0, height = 2, width = 12).pack(side=tk.LEFT)
+tk.Checkbutton(checkbox_frame, text = "Remove quotes(data)", variable = quotes_check_d, onvalue = 1, offvalue = 0, height = 2, width = 16).pack(side=tk.LEFT)
 capitalize_check = tk.IntVar()
-tk.Checkbutton(checkbox_frame, text = "Capitalize Headers?", variable = capitalize_check, onvalue = 1, offvalue = 0, height = 2, width = 16).pack(side=tk.LEFT)
+tk.Checkbutton(checkbox_frame, text = "Capitalize headers", variable = capitalize_check, onvalue = 1, offvalue = 0, height = 2, width = 16).pack(side=tk.LEFT)
 
 # Output window part
 tk.Label(root, text="Output (Markdown Table)").pack()
@@ -132,7 +154,7 @@ tk.Label(root, text="Console Output (Print/Error Log):").pack()
 console_output = tk.Text(root, height=10, width=80, bg="black", fg="lime", state="disabled")
 console_output.pack()
 
-madebytext = tk.Label(root, text = "TTGConverter v1.0 Made by Malgenec")
+madebytext = tk.Label(root, text = "TTGConverter v1.1 Made by Malgenec")
 madebytext.pack()
 
 
