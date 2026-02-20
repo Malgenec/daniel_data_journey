@@ -1,8 +1,13 @@
 # Crime analysis: USA FBI 2020
 Power BI Analytical Project for the Vilnius Coding School
+
+[Check Full PDF Report](./Daniel_Garifulin_Project.pdf)
+
 ## Project Overview
 This Project analyzes 7.9M crime incidents, 8.9M victims, and 2.2M arrests based on FBI 2020 public data.
+
 Data source - official US website https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads
+
 <details>
   <summary>Small glimpse at the original txt master file (4 GB, I'm showing only 40 lines)</summary>
 
