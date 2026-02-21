@@ -1,7 +1,12 @@
 # Crime analysis: USA FBI 2020
 Power BI Analytical Project for the Vilnius Coding School
 
+<img width="1655" height="956" alt="image" src="https://github.com/user-attachments/assets/e2de1aac-3dc4-497b-8568-6af4aac9785d" />
+
 [Check Full PDF Report](./Daniel_Garifulin_Project.pdf)
+
+<br />
+<br />
 
 ## Project Overview
 This Project analyzes 7.9M crime incidents, 8.9M victims, and 2.2M arrests based on FBI 2020 public data.
@@ -57,6 +62,9 @@ To "decrypt" the data, I've started with reading NIBRS record description pdf fi
 Links to the [Python code that does decryption and extraction](https://github.com/Malgenec/daniel_data_journey/blob/main/power_bi_projects/crime_analysis/data_to_sql.py)
 and [instructions how to use it](https://github.com/Malgenec/daniel_data_journey/blob/main/power_bi_projects/crime_analysis/data_to_sql_readme.md)
 
+<br />
+<br />
+
 The project goal was to:
 
 * Fulfill the project criteria provided by Vilnius Coding School
@@ -94,6 +102,11 @@ The project focuses on analytical modeling quality, not dashboard decoration.
 
 Since some criteria required to show Power BI skills, data was not modified in MySQL (though it would be much easier).
 
+Model schema:
+<img width="1785" height="915" alt="image" src="https://github.com/user-attachments/assets/8c979f86-1d9e-4edc-817b-d2950d20277a" />
+
+<br />
+<br />
 
 ## Key Metrics
 * Total Incidents: 7.92M
@@ -106,6 +119,9 @@ Since some criteria required to show Power BI skills, data was not modified in M
 
 * Hate Crimes: 5,994 (≈0.1% of all crimes)
 
+<br />
+<br />
+
 ## Main Insights
 
 ### 1. Crime Structure (National Level)
@@ -117,6 +133,9 @@ Top 3 offense categories:
 * Drug Equipment Violations (~15%)
 Crime is highly concentrated in a limited number of categories.
 
+<br />
+<br />
+
 ### 2. Age Impact
 * Most arrested group: 20–29 years
 
@@ -124,7 +143,10 @@ Crime is highly concentrated in a limited number of categories.
 
 * 50+ group strongly under-represented
 
-Age is a stronger predictor than race.
+**Age is a stronger predictor than race.**
+
+<br />
+<br />
 
 ### 3. Gender Distribution
 
@@ -134,7 +156,10 @@ Age is a stronger predictor than race.
 
 * Victim split: ~51% female / 49% male
 
-Sex has stronger statistical skew than race.
+**Sex has stronger statistical skew than race.**
+
+<br />
+<br />
 
 ### 4. Representation Analysis (Population-Adjusted)
 
@@ -152,6 +177,9 @@ Representation = (arrest share %) − (population share %)
 Single-variable analysis (race only) is statistically incomplete.
 Socioeconomic factors are not included in the dataset.
 
+<br />
+<br />
+
 ### 5. Hate Crime Patterns
 
 * ~6,000 hate crimes nationwide
@@ -160,7 +188,10 @@ Socioeconomic factors are not included in the dataset.
 
 * Most targeted group: Black race (35.2%)
 
-Hate crimes represent a small fraction of total crime but disproportionately affect minority groups.
+**Hate crimes represent a small fraction of total crime but disproportionately affect minority groups.**
+
+<br />
+<br />
 
 ## Data Modeling & Architecture
 
@@ -188,6 +219,9 @@ Raw data was poorly structured and required significant transformation.
 
 * Many-to-many relationship handled through bridge table
 
+<br />
+<br />
+
 ## Analytical Questions Answered
 
 Which state had the highest incident count?
@@ -201,6 +235,9 @@ Are young people more likely to be arrested?
 Are stereotypes supported by normalized data?
 
 How significant are hate crimes relative to total crime?
+
+<br />
+<br />
 
 ## What This Project Demonstrates
 
@@ -216,11 +253,17 @@ How significant are hate crimes relative to total crime?
 
 * Business-style interpretation of public data
 
+<br />
+<br />
+
 ## Notes
 
 Some small race categories were excluded from certain visuals due to Power BI rendering limitations.
 
 Dataset does not include socioeconomic variables (poverty, urbanization, education), limiting causal interpretation.
+
+<br />
+<br />
 
 ## Author
 
