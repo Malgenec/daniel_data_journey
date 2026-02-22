@@ -23,13 +23,19 @@ I believe my mathematical mindset and determination towards the data analysis wi
 
 :white_check_mark: [SQLBolt](https://sqlbolt.com/) - Link to [completed tasks](SQLBolt_Tasks/)
 
-:white_large_square: Practice with real datasets in PostgreSQL
+:white_check_mark: Practice with real datasets in: MySQL :white_check_mark: PostgreSQL :white_large_square:
 
-:white_large_square: Do projects with SQL + Python
+:white_check_mark: Start doing projects with SQL + Python
+
+:white_check_mark: Learn Power Bi Basics
+
+:white_check_mark: First Power BI [Project](https://github.com/Malgenec/daniel_data_journey/tree/fb363611bdbaf54b164dd7506f3dd4afdefff7e3/power_bi_projects/crime_analysis)
+
+:white_large_square: Finance / Gaming sector Power BI Projects
 
 :white_large_square: Learn Tableau
 
-:white_large_square: Learn Power Bi
+:white_large_square: Grow knowledge in SQL/Power BI/Python (I believe this box can't be ever checked, right?)
 
 ## Projects
 
