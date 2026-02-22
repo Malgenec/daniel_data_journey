@@ -40,6 +40,10 @@ I believe my mathematical mindset and determination towards the data analysis wi
 ## Projects
 
 >
+- Power BI Project about [Crimes in USA, 2020 FBI Data](https://github.com/Malgenec/daniel_data_journey/tree/fb363611bdbaf54b164dd7506f3dd4afdefff7e3/power_bi_projects/crime_analysis)
+
+> State: *__Finished__*
+
 -  Time-saving [cheat sheet folder](cheat_sheet) for personal needs
 
 > State: *__In Progress__* 
