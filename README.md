@@ -31,7 +31,7 @@ I believe my mathematical mindset and determination towards the data analysis wi
 
 :white_check_mark: First Power BI [Project](https://github.com/Malgenec/daniel_data_journey/tree/fb363611bdbaf54b164dd7506f3dd4afdefff7e3/power_bi_projects/crime_analysis)
 
-:white_large_square: Finance / Gaming sector Power BI Projects
+:white_check_mark: ~~Finance / Gaming sector Power BI Projects~~ Managed finance projects at work, made a bot for mobile game "Hero wars alliance" that takes data, manipulates it and transforms into winning decisions.
 
 :white_large_square: Learn Tableau
 
@@ -46,8 +46,20 @@ I believe my mathematical mindset and determination towards the data analysis wi
 
 -  Time-saving [cheat sheet folder](cheat_sheet) for personal needs
 
-> State: *__In Progress__* 
+> State: *__Finished, may add more__* 
 > 
 -  Table converter - SQL/Excel/Websites to GitHub markdown: [TTGConverter](Python_Scripts/Table_To_Git_Markdown_Converter)
 
 > State: *__Finished, may add features__*
+
+- **Hero Wars Alliance Bot** - a desktop automation tool for daily Frontier and Dungeon gameplay.
+  - Reverse engineered recorded battle data to build a combat simulator.
+  - Developed the simulator in Python, then ported the battle engine to Rust, achieving approximately **3,000 battle simulations in 2 seconds**.
+  - Estimates matchup win probabilities and optimizes squad assignments to maximize the chance of clearing an entire Frontier level.
+  - Automatically applies recommended squad arrangements in the game.
+  - Validates simulator results against recorded battles to check accuracy.
+  - Packaged as a Windows executable with a graphical interface.
+
+  **Technologies:** Python, Rust, browser automation, Monte Carlo simulation, combinatorial optimization, PyInstaller.
+
+> State: *__Functional, actively maintained. Will share soon__*
